@@ -1,16 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
-.nomedia
-
-# Godot-specific ignores
-.import/
-export.cfg
-export_credentials.cfg
-
-# Imported translations (automatically generated from CSV files)
-*.translation
-
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+/android/
+addons/godot-git-plugin/git_plugin.gdextension
+addons/godot-git-plugin/git_plugin.gdextension.uid
+addons/godot-git-plugin/windows/libgit_plugin.windows.editor.x86_64.dll
+addons/godot-git-plugin/windows/~libgit_plugin.windows.editor.x86_64.dll
+survivors_game.tscn2888909364.tmp
+survivors_game.tscn2899923418.tmp
