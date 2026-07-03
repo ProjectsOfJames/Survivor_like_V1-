@@ -8,3 +8,8 @@ addons/godot-git-plugin/windows/~libgit_plugin.windows.editor.x86_64.dll
 survivors_game.tscn2888909364.tmp
 survivors_game.tscn2899923418.tmp
 addons/
+*.tmp
+*.kra
+*.import
+*.png~
+*.kra~

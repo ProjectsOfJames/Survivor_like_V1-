@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	else: 
 		%HappyBoo.scale.x = 1
 	
-	const DAMAGE_RATE = 5.0
+	const DAMAGE_RATE = 2.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0: 
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta

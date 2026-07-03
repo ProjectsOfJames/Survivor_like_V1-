@@ -2,7 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_3cish"]
 [ext_resource type="Script" uid="uid://c1bfau31nfqio" path="res://survivors_game.gd" id="1_qqaft"]
-[ext_resource type="PackedScene" uid="uid://dq3r015sr1uql" path="res://pine_tree.tscn" id="2_y3pti"]
+[ext_resource type="Texture2D" uid="uid://dacyp8jkpxdop" path="res://assets/tilemap/tilemap.png" id="2_edxvn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l26od"]
+texture = ExtResource("2_edxvn")
+texture_region_size = Vector2i(96, 96)
+0:3/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mx11s"]
+tile_size = Vector2i(96, 96)
+sources/0 = SubResource("TileSetAtlasSource_l26od")
 
 [sub_resource type="Curve2D" id="Curve2D_l26od"]
 _data = {
@@ -14,8 +26,13 @@ point_count = 5
 y_sort_enabled = true
 script = ExtResource("1_qqaft")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1294929522]
+z_index = -2
+tile_set = SubResource("TileSet_mx11s")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1225923479]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=423366857]
 offset_right = 1920.0
@@ -23,6 +40,9 @@ offset_bottom = 1080.0
 
 [node name="Player" parent="." unique_id=1970329060 instance=ExtResource("1_3cish")]
 position = Vector2(1043, 592)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=722479153]
+position = Vector2(-1, -39)
 
 [node name="Path2D" type="Path2D" parent="Player" unique_id=939752192]
 position = Vector2(-1043, -592)
@@ -32,27 +52,6 @@ curve = SubResource("Curve2D_l26od")
 unique_name_in_owner = true
 position = Vector2(-174, -176)
 rotation = -0.001264222
-
-[node name="StaticBody2D" parent="." unique_id=1783748662 instance=ExtResource("2_y3pti")]
-position = Vector2(450, 852)
-
-[node name="StaticBody2D2" parent="." unique_id=1473314347 instance=ExtResource("2_y3pti")]
-position = Vector2(390, 357)
-
-[node name="StaticBody2D3" parent="." unique_id=1503058173 instance=ExtResource("2_y3pti")]
-position = Vector2(475, 389)
-
-[node name="StaticBody2D4" parent="." unique_id=640172433 instance=ExtResource("2_y3pti")]
-position = Vector2(1326, 246)
-
-[node name="StaticBody2D5" parent="." unique_id=1782778955 instance=ExtResource("2_y3pti")]
-position = Vector2(1402, 224)
-
-[node name="StaticBody2D6" parent="." unique_id=368849321 instance=ExtResource("2_y3pti")]
-position = Vector2(1389, 308)
-
-[node name="StaticBody2D7" parent="." unique_id=427670217 instance=ExtResource("2_y3pti")]
-position = Vector2(1204, 809)
 
 [node name="Timer" type="Timer" parent="." unique_id=1250600409]
 wait_time = 0.4

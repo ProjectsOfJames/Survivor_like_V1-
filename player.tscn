@@ -36,8 +36,6 @@ shape = SubResource("CircleShape2D_onrkg")
 [node name="Gun" parent="." unique_id=1120360291 instance=ExtResource("3_i3pqv")]
 position = Vector2(1, -41)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1243780572]
-
 [node name="HurtBox" type="Area2D" parent="." unique_id=1936264093]
 unique_name_in_owner = true
 collision_layer = 0
