@@ -8,13 +8,21 @@
 texture = ExtResource("2_edxvn")
 texture_region_size = Vector2i(96, 96)
 0:3/0 = 0
-0:2/0 = 0
-0:1/0 = 0
-0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mx11s"]
 tile_size = Vector2i(96, 96)
 sources/0 = SubResource("TileSetAtlasSource_l26od")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqaft"]
+texture = ExtResource("2_edxvn")
+texture_region_size = Vector2i(96, 96)
+0:2/0 = 0
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7jj1j"]
+tile_size = Vector2i(96, 96)
+sources/0 = SubResource("TileSetAtlasSource_qqaft")
 
 [sub_resource type="Curve2D" id="Curve2D_l26od"]
 _data = {
@@ -26,20 +34,16 @@ point_count = 5
 y_sort_enabled = true
 script = ExtResource("1_qqaft")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1294929522]
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1294929522]
 z_index = -2
 tile_set = SubResource("TileSet_mx11s")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1225923479]
-layer = -1
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=423366857]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="Objects" type="TileMapLayer" parent="." unique_id=84777107]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_7jj1j")
 
 [node name="Player" parent="." unique_id=1970329060 instance=ExtResource("1_3cish")]
-position = Vector2(1043, 592)
+position = Vector2(1043, 595)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=722479153]
 position = Vector2(-1, -39)
