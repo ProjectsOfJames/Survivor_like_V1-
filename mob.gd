@@ -22,11 +22,11 @@ func take_damage():
 	mob_health[mob_type] -= 1
 	%Slime.play_hurt()
 	
-	if mob_health[mob_type] == 0:
+	if mob_health[mob_type] == 0: # Slime
 		queue_free()
 		
+		Points.mobs_killed["slime"] += 1;
 		const SMOKE_EXPLOSION = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_EXPLOSION.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
-		

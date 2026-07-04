@@ -24,6 +24,11 @@ texture_region_size = Vector2i(96, 96)
 tile_size = Vector2i(96, 96)
 sources/0 = SubResource("TileSetAtlasSource_qqaft")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l26od"]
+bg_color = Color(0.73333335, 0.30980393, 1, 0.7137255)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+
 [sub_resource type="Curve2D" id="Curve2D_l26od"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -174, -176, 0, 0, 0, 0, 2199, -179, 0, 0, 0, 0, 2183, 1196, 0, 0, 0, 0, -178, 1199, 0, 0, 0, 0, -175, -175)
@@ -43,10 +48,29 @@ y_sort_enabled = true
 tile_set = SubResource("TileSet_7jj1j")
 
 [node name="Player" parent="." unique_id=1970329060 instance=ExtResource("1_3cish")]
-position = Vector2(1043, 595)
+position = Vector2(720, 443)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=722479153]
 position = Vector2(-1, -39)
+
+[node name="Score" type="ProgressBar" parent="Player/Camera2D" unique_id=1803693447]
+unique_name_in_owner = true
+z_index = 2
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -719.0
+offset_top = -404.0
+offset_right = 721.0
+offset_bottom = -377.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_l26od")
+max_value = 10.0
+show_percentage = false
 
 [node name="Path2D" type="Path2D" parent="Player" unique_id=939752192]
 position = Vector2(-1043, -592)

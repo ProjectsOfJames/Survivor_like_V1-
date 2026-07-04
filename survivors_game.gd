@@ -87,7 +87,6 @@ func load_chunk(x, y):
 						ground.set_cell(other_tiles_position[ot][op], 2, Vector2i(3, 2), 0)
 
 func _physics_process(_delta: float) -> void:
-	
 	# Chunk loading / unloading
 	var world_size = ground.get_used_rect() as Rect2i
 	var world_size_start = world_size.position
@@ -105,6 +104,19 @@ func _physics_process(_delta: float) -> void:
 		load_chunk(world_size_start.x, world_size_start.y + 1)
 	elif player_position_negitive.y < world_size_start.y:
 		load_chunk(world_size_start.x, world_size_start.y - 1)
+		
+	# points
+	var total_points = 0
+	
+	for i in Points.mobs_killed:
+		total_points += Points.mobs_killed[i]
+	
+	if total_points >= %Score.max_value:
+		%Score.min_value = %Score.max_value
+		Points.level += 1
+		%Score.max_value += 10 * Points.level
+	
+	%Score.value = total_points
 
 func _input(event: InputEvent) -> void:
 	# Mouse wheel zoom
