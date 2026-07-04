@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://ogik4s70pgwl"]
 
-[ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="1_3j35h"]
 [ext_resource type="Script" uid="uid://dnbjp2524b1py" path="res://characters/slime/slime.gd" id="1_87y5x"]
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="1_cq7ej"]
-[ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://characters/slime/slime_face.png" id="2_ygydt"]
-[ext_resource type="Texture2D" uid="uid://btbxea1f3vwot" path="res://characters/slime/slime_body_hurt.png" id="4_0qu0c"]
-[ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
+[ext_resource type="Texture2D" uid="uid://cabmbgy8gv07h" path="res://assets/mobs/ground_shadow.png" id="2_w75ej"]
+[ext_resource type="Texture2D" uid="uid://rqbpdla70dut" path="res://assets/mobs/slime/slime_body.png" id="3_648cb"]
+[ext_resource type="Texture2D" uid="uid://c7rt25t421lnf" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w75ej"]
+load_path = "res://.godot/imported/slime_face.png-561a1f87b138570340118953f07aab21.ctex"
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
@@ -55,7 +56,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_ygydt")]
+"values": [SubResource("CompressedTexture2D_w75ej")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -83,7 +84,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("4_hi70h"), ExtResource("2_ygydt")]
+"values": [ExtResource("4_hi70h"), SubResource("CompressedTexture2D_w75ej")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -215,28 +216,30 @@ _data = {
 script = ExtResource("1_87y5x")
 
 [node name="GroundShadow" type="Sprite2D" parent="." unique_id=2019923751]
-modulate = Color(0.898039, 0.878431, 0.831373, 1)
 z_index = -1
 z_as_relative = false
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_cq7ej")
+texture = ExtResource("2_w75ej")
 
 [node name="Anchor" type="Marker2D" parent="." unique_id=794902193]
 
 [node name="SlimeBody" type="Sprite2D" parent="Anchor" unique_id=1727508908]
-texture = ExtResource("1_3j35h")
+modulate = Color(1, 1, 1, 0.87058824)
+texture = ExtResource("3_648cb")
 offset = Vector2(0, -36)
 
 [node name="SlimeBodyHurt" type="Sprite2D" parent="Anchor/SlimeBody" unique_id=2002072866]
+visible = false
 modulate = Color(1, 1, 1, 0)
-texture = ExtResource("4_0qu0c")
+self_modulate = Color(0.8959712, 0.1999118, 3.85046e-07, 1)
+texture = ExtResource("3_648cb")
 offset = Vector2(0, -36)
 
 [node name="Face" type="Marker2D" parent="Anchor" unique_id=1541035147]
 position = Vector2(0, -25)
 
 [node name="SlimeFace" type="Sprite2D" parent="Anchor/Face" unique_id=403368551]
-texture = ExtResource("2_ygydt")
+texture = SubResource("CompressedTexture2D_w75ej")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2007851046]
 unique_name_in_owner = true
